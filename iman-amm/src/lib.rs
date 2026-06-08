@@ -231,8 +231,7 @@ impl Amm for ImanAmm {
         //   [4] vault_a (writable)  [5] vault_b (writable)  [6] oracle (readonly)
         //   [7] fee_vault (writable)  [8] token_program  [9] clock_sysvar
         Ok(SwapAndAccountMetas {
-            // Swap::ImanTrampa variant pending PR to jup-ag/jupiter-amm-interface
-            swap: Swap::TokenSwap,
+            swap: Swap::ImanTrampa { a_to_b },
             account_metas: vec![
                 AccountMeta::new_readonly(swap_params.token_transfer_authority, true),
                 AccountMeta::new(self.pool_key, false),
